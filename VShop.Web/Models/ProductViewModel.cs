@@ -1,29 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using VShop.ProductApi.Models;
 
-namespace VShop.ProductApi.DTOs;
+namespace VShop.Web.Models;
 
-public class ProductDTO
+public class ProductViewModel
 {
     public int Id { get; set; }
-
-    [Required(ErrorMessage = "the name is required")]
-    [MinLength(3)]
-    [MaxLength(100)]
+    [Required]
     public string? Name { get; set; }
-
-    [Required(ErrorMessage = "The price is required")]
+    [Required]
     public decimal Price { get; set; }
+    [Required]
     public string? Description { get; set; }
-
-    [Required(ErrorMessage = "The stocl is required")]
-    [Range(1, 9999)]
+    [Required]
     public long Stock { get; set; }
+    [Required]
     public string? ImageUrl { get; set; }
     public string? CategoryName { get; set; }
-
-    [JsonIgnore]
-    public Category? Category { get; set; }
+    [Display(Name="Categorias")]
     public int CategoryId { get; set; }
 }
